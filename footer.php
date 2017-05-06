@@ -1,28 +1,13 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package agros
- */
-
-?>
-
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'agros' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'agros' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'agros' ), 'agros', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-
+	<footer>
+		<?php $args = array( // опции для вывода нижнего меню, чтобы они работали, меню должно быть создано в админке
+			'theme_location' => 'bottom', // идентификатор меню, определен в register_nav_menus() в function.php
+			'container'=> false, // обертка списка, false - это ничего
+			'menu_class' => 'bottom-menu', // класс для ul
+	  		'menu_id' => 'bottom-nav', // id для ul
+	  	);
+		wp_nav_menu($args); // выводим нижние меню
+		?>
+	</footer>
 <?php wp_footer(); ?>
-
 </body>
 </html>

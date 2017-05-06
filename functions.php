@@ -1,143 +1,73 @@
 <?php
-/**
- * agros functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package agros
- */
 
-if ( ! function_exists( 'agros_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-function agros_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on agros, use a find and replace
-	 * to change 'agros' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'agros', get_template_directory() . '/languages' );
+register_nav_menus(array( // Регистрация меню
+	'top' => 'Верхнее',
+	'bottom' => 'Внизу'
+));
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+add_theme_support('post-thumbnails'); // Включение миниатюр
+set_post_thumbnail_size(250, 150); // Размер миниатюр 250x150
+add_image_size('big-thumb', 400, 400, true); // Ещё один размер миниатюры
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+register_sidebar(array(
+	'name' => 'Колонка слева', // Название сайдбара
+	'id' => "left-sidebar", // Идентификатор
+	'description' => 'Обычная колонка в сайдбаре',
+	'before_widget' => '<div id="%1$s" class="widget %2$s">', // До виджета
+	'after_widget' => "</div>\n", // После виджета
+	'before_title' => '<span class="widgettitle">', //  До заголовка виджета
+	'after_title' => "</span>\n", //  После заголовка виджета
+));
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'agros' ),
-	) );
-
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'agros_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-}
-endif;
-add_action( 'after_setup_theme', 'agros_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function agros_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'agros_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'agros_content_width', 0 );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function agros_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'agros' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'agros' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'agros_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- */
-function agros_scripts() {
-	wp_enqueue_style( 'agros-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'agros-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'agros-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+class clean_comments_constructor extends Walker_Comment { // класс, который собирает всю структуру комментов
+	public function start_lvl( &$output, $depth = 0, $args = array()) { // что выводим перед дочерними комментариями
+		$output .= '<ul class="children">' . "\n";
+	}
+	public function end_lvl( &$output, $depth = 0, $args = array()) { // что выводим после дочерних комментариев
+		$output .= "</ul><!-- .children -->\n";
+	}
+    protected function comment( $comment, $depth, $args ) { // разметка каждого комментария, без закрывающего </li>!
+    	$classes = implode(' ', get_comment_class()).($comment->comment_author_email == get_the_author_meta('email') ? ' author-comment' : ''); // берем стандартные классы комментария и если коммент пренадлежит автору поста добавляем класс author-comment
+        echo '<li id="li-comment-'.get_comment_ID().'" class="'.$classes.'">'."\n"; // родительский тэг комментария с классами выше и уникальным id
+    	echo '<div id="comment-'.get_comment_ID().'">'."\n"; // элемент с таким id нужен для якорных ссылок на коммент
+    	echo get_avatar($comment, 64)."\n"; // покажем аватар с размером 64х64
+    	echo '<p class="meta">Автор: '.get_comment_author()."\n"; // имя автора коммента
+    	echo ' '.get_comment_author_email(); // email автора коммента
+    	echo ' '.get_comment_author_url(); // url автора коммента
+    	echo ' Добавлено '.get_comment_date('F j, Y').' в '.get_comment_time()."\n"; // дата и время комментирования
+    	if ( '0' == $comment->comment_approved ) echo '<em class="comment-awaiting-moderation">Ваш комментарий будет опубликован после проверки модератором.</em>'."\n"; // если комментарий должен пройти проверку
+        comment_text()."\n"; // текст коммента
+        $reply_link_args = array( // опции ссылки "ответить"
+        	'depth' => $depth, // текущая вложенность
+        	'reply_text' => 'Ответить', // текст
+			'login_text' => 'Вы должны быть залогинены' // текст если юзер должен залогинеться
+        );
+        echo get_comment_reply_link(array_merge($args, $reply_link_args)); // выводим ссылку ответить
+        echo '</div>'."\n"; // закрываем див
+    }
+    public function end_el( &$output, $comment, $depth = 0, $args = array() ) { // конец каждого коммента
+		$output .= "</li><!-- #comment-## -->\n";
 	}
 }
-add_action( 'wp_enqueue_scripts', 'agros_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+function pagination() { // функция вывода пагинации
+	global $wp_query; // текущая выборка должна быть глобальной
+	$big = 999999999; // число для замены
+	echo paginate_links(array( // вывод пагинации с опциями ниже
+		'base' => str_replace($big,'%#%',esc_url(get_pagenum_link($big))), // что заменяем в формате ниже
+		'format' => '?paged=%#%', // формат, %#% будет заменено
+		'current' => max(1, get_query_var('paged')), // текущая страница, 1, если $_GET['page'] не определено
+		'type' => 'list', // ссылки в ul
+		'prev_text'    => 'Назад', // текст назад
+    	'next_text'    => 'Вперед', // текст вперед
+		'total' => $wp_query->max_num_pages, // общие кол-во страниц в пагинации
+		'show_all'     => false, // не показывать ссылки на все страницы, иначе end_size и mid_size будут проигнорированны
+		'end_size'     => 15, //  сколько страниц показать в начале и конце списка (12 ... 4 ... 89)
+		'mid_size'     => 15, // сколько страниц показать вокруг текущей страницы (... 123 5 678 ...).
+		'add_args'     => false, // массив GET параметров для добавления в ссылку страницы
+		'add_fragment' => '',	// строка для добавления в конец ссылки на страницу
+		'before_page_number' => '', // строка перед цифрой
+		'after_page_number' => '' // строка после цифры
+	));
+}
+?>
