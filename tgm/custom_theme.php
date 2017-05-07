@@ -74,8 +74,8 @@ function kovalev_register_required_plugins() {
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'               => 'BuddyPress',
-			'slug'               => 'buddypress',
+			'name'               => 'Contact Form 7',
+			'slug'               => 'contact-form-7',
 			'required'  		 => true,
 			'force_activation'   => true,
 		)
