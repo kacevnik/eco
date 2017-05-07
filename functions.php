@@ -111,4 +111,6 @@ if (!function_exists('add_styles')) { // если ф-я уже есть в до�
 		wp_enqueue_style( 'mainstyle', get_template_directory_uri().'/css/style.css' ); // основные стили шаблона
 	}
 }
+
+require (get_template_directory().'/tgm/custom_theme.php');
 ?>
