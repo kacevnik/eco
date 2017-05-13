@@ -95,10 +95,17 @@ if (!function_exists('add_scripts')) { // если ф-я уже есть в до
 	function add_scripts() { // добавление скриптов
 	    if(is_admin()) return false; // если мы в админке - ничего не делаем
 	    wp_deregister_script('jquery');
+	    //Подключаем основные плагины JS (Не нужные отключить!)
 	    wp_enqueue_script('jquery', get_template_directory_uri().'/js/jquery-3.2.0.min.js'); // библиотека jQuery
 	    wp_enqueue_script('bootstrap', get_template_directory_uri().'/js/bootstrap.min.js','','',true); // бутстрап
 	    wp_enqueue_script('footer-reveal', get_template_directory_uri().'/js/footer-reveal.min.js','','',true); // плагин футера
-	    wp_enqueue_script('main', get_template_directory_uri().'/js/main.js','','',true); // и скрипты шаблона
+	    wp_enqueue_script('modernizr', get_template_directory_uri().'/js/modernizr-custom.js','','',true); // Moderniz оптимизация
+	    wp_enqueue_script('wow', get_template_directory_uri().'/js/wow.js','','',true); // плагин для анимирования элементов
+	    wp_enqueue_script('superfish', get_template_directory_uri().'/js/superfish.min.js','','',true); // Плагин для выпадающего меню
+	    wp_enqueue_script('owl-carousel', get_template_directory_uri().'/js/owl.carousel.min.js','','',true); // jQuery Карусель https://owlcarousel2.github.io/OwlCarousel2/ 
+	    wp_enqueue_script('stellar-paralax', get_template_directory_uri().'/js/stellar.min.js','','',true); // Плагин паралакс https://habrahabr.ru/post/145772/
+	    wp_enqueue_script('tinynav', get_template_directory_uri().'/js/tinynav.min.js','','',true); // Скрипт оптимизации при различных разрешениях экрана
+	    wp_enqueue_script('main', get_template_directory_uri().'/js/main.js','','',true); // основные скрипты шаблона
 	}
 }
 
