@@ -1,0 +1,81 @@
+/*---------------header-------------*/
+
+header{
+	font-size: 18px;
+	color: #fff;
+	background: #ccc;
+}
+
+#top{
+	padding: 15px 0 0 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    background: linear-gradient(0deg, rgba(186, 209, 241, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.top_phone{
+	float: left;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.top_phone i{
+	margin: 0 10px 0 0;
+}
+
+.social-menu{
+	float: right;
+}
+
+.social-menu li{
+	float: left;
+    margin: 0 0 0 12px;
+}
+
+.social-menu li a{
+	color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    width: 30px;
+    height: 29px;
+    display: block;
+    text-align: center;
+    padding: 2px 0 0 0;
+}
+
+.social-menu li a:hover{
+	color: #000;
+	background: #fff;
+}
+
+.top_main_menu{
+	float: right;
+	text-transform: uppercase;
+	margin: 15px 0 15px 0;
+	position: relative;
+	display: block;
+}
+
+.top_main_menu li{
+	float: left;
+	margin: 0 0 0 15px;
+}
+
+.top_main_menu li a{
+	color: #fff;
+}
+
+.top_main_menu li a:hover{
+	text-decoration: none;
+}
+
+.fancy_bottom{
+	position: absolute;
+	height: 3px;
+	border-bottom: 2px solid #fff;
+	width: 20px;
+    top: 24px;
+}
+
+.logo{
+	padding: 7px 0 0 0;
+}

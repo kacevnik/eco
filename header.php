@@ -12,8 +12,39 @@
 </head>
 <body <?php body_class(); ?>>
 	<header>
-		<?php
-			$args = array('theme_location' => 'top', 'container'=> 'nav', 'menu_class' => 'bottom-menu', 'menu_id' => 'bottom-nav');
-			wp_nav_menu($args);
-		?>
+		<section id="top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="top_phone"><i class="fa fa-phone"></i>800-773-66-14</div>
+					</div>
+					<div class="col-md-6">
+						<?php
+							$args = array('theme_location' => 'top_social', 'container'=> 'nav', 'menu_class' => 'social-menu', 'menu_id' => 'social-nav');
+							wp_nav_menu($args);
+							//fw_get_db_settings_option('kdv_gallery_background')["url"]
+						?>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="main_top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="logo">
+							<a href="">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-10">
+						<?php
+							$args = array('theme_location' => 'top', 'container'=> 'nav', 'menu_class' => 'top_main_menu', 'menu_id' => 'top_main_menu');
+							wp_nav_menu($args);
+						?>
+					</div>
+				</div>
+			</div>
+		</section>
 	</header>

@@ -1,8 +1,9 @@
 <?php
 include('settings.php');
-register_nav_menus(array( // Регистрация меню
-	'top' => 'Верхнее',
-	'bottom' => 'Внизу'
+register_nav_menus(array( //add menus
+	'top' => 'Top Main',
+	'bottom' => 'Bottom',
+	'top_social' => 'Social'
 ));
 
 add_theme_support('post-thumbnails'); // Включение миниатюр
@@ -18,6 +19,14 @@ register_sidebar(array(
 	'before_title' => '<span class="widgettitle">', //  До заголовка виджета
 	'after_title' => "</span>\n", //  После заголовка виджета
 ));
+
+add_action("wp_head", "kdv_custom_css_style");
+ 
+function kdv_custom_css_style() {
+?>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,700" rel="stylesheet">
+<?php
+}
 
 class clean_comments_constructor extends Walker_Comment { // класс, который собирает всю структуру комментов
 	public function start_lvl( &$output, $depth = 0, $args = array()) { // что выводим перед дочерними комментариями
@@ -109,13 +118,17 @@ if (!function_exists('add_scripts')) { // если ф-я уже есть в до
 	}
 }
 
-add_action('wp_print_styles', 'add_styles'); // приклеем ф-ю на добавление стилей в хедер
-if (!function_exists('add_styles')) { // если ф-я уже есть в дочерней теме - нам не надо её определять
+add_action('wp_print_styles', 'add_styles');
+if (!function_exists('add_styles')) {
 	function add_styles() { // добавление стилей
-	    if(is_admin()) return false; // если мы в админке - ничего не делаем
-	    wp_enqueue_style( 'bs', get_template_directory_uri().'/css/bootstrap.min.css' ); // бутстрап
-	    wp_enqueue_style( 'font', get_template_directory_uri().'/css/font-awesome.min.css' ); //Шрифты
-		wp_enqueue_style( 'mainstyle', get_template_directory_uri().'/css/style.css' ); // основные стили шаблона
+	    if(is_admin()) return false; //if we in admin panel, false
+	    wp_enqueue_style( 'bs', get_template_directory_uri().'/css/bootstrap.min.css' ); // bootstrap styles
+	    wp_enqueue_style( 'font', get_template_directory_uri().'/css/font-awesome.min.css' ); //font awesome style
+		wp_enqueue_style( 'animate', get_template_directory_uri().'/css/animate.css' ); // styles for animate plugin
+		wp_enqueue_style( 'owl_carusel', get_template_directory_uri().'/css/owl.carousel.css' ); // styles for owl-carusel plugin
+		wp_enqueue_style( 'owl_carusel', get_template_directory_uri().'/css/superfish.css' ); // styles for superfish plugin
+		wp_enqueue_style( 'superfish', get_template_directory_uri().'/css/header.css' ); // styles for header
+		wp_enqueue_style( 'mainstyle', get_template_directory_uri().'/css/style.css' ); // main styles theme
 	}
 }
 
