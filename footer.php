@@ -1,13 +1,29 @@
 	<footer>
-		<?php $args = array( // опции для вывода нижнего меню, чтобы они работали, меню должно быть создано в админке
-			'theme_location' => 'bottom', // идентификатор меню, определен в register_nav_menus() в function.php
-			'container'=> false, // обертка списка, false - это ничего
-			'menu_class' => 'bottom-menu', // класс для ul
-	  		'menu_id' => 'bottom-nav', // id для ul
-	  	);
-		wp_nav_menu($args); // выводим нижние меню
-		?>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt=""></div>
+				<div class="col-md-4"><h3>About GreenTec Auto</h3>
+GreenTec Auto specializes in rebuilding high voltage (HV) Batteries for most hybrid cars. We use good, tested cells from newer battery packs, making sure our re-manufactured high voltage batteries work properly and efficiently. We know your hybrid vehicle FROM END TO END.</div>
+				<div class="col-md-4">3282 Luyung Drive<br>
+									Rancho Cordova, CA 95742<br>
+									800-773-6614
+									</div>
+			</div>
+		</div>
 	</footer>
+	<section class="end">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">© <?php echo date("Y"); ?> - <a href = "<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a></div>
+				<div class="col-md-6">
+					<?php
+							$args = array('theme_location' => 'top_social_bottom', 'container'=> 'nav', 'menu_class' => 'social-menu', 'menu_id' => 'social-nav-bottom');
+							wp_nav_menu($args);
+						?>
+				</div>
+			</div>
+		</div>
+	</section>
 <?php wp_footer(); ?>
 </body>
 </html>

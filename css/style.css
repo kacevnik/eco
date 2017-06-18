@@ -1,3 +1,12 @@
 body{
 	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 18px;
+}
+
+.main_slider{
+
+}
+
+.front_page{
+	border-top: 5px solid #3367D6;
 }

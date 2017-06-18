@@ -16,6 +16,8 @@ jQuery(document).ready(function ($) {
 		var a = $('.current-menu-item').offset();
 		var t = $('.top_main_menu').offset();
 		$('.fancy_bottom').stop().animate({width: c, left: a.left-t.left}, 100);
-	})
+	});
+
+	$.stellar();
 
 });

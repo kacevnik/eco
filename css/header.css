@@ -3,7 +3,11 @@
 header{
 	font-size: 18px;
 	color: #fff;
-	background: #ccc;
+	z-index: 1000;
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0,0, 0.5);
+
 }
 
 #top{

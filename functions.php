@@ -3,7 +3,8 @@ include('settings.php');
 register_nav_menus(array( //add menus
 	'top' => 'Top Main',
 	'bottom' => 'Bottom',
-	'top_social' => 'Social'
+	'top_social' => 'Social',
+	'top_social_bottom' => 'Social Bootom',
 ));
 
 add_theme_support('post-thumbnails'); // Включение миниатюр
@@ -127,7 +128,8 @@ if (!function_exists('add_styles')) {
 		wp_enqueue_style( 'animate', get_template_directory_uri().'/css/animate.css' ); // styles for animate plugin
 		wp_enqueue_style( 'owl_carusel', get_template_directory_uri().'/css/owl.carousel.css' ); // styles for owl-carusel plugin
 		wp_enqueue_style( 'owl_carusel', get_template_directory_uri().'/css/superfish.css' ); // styles for superfish plugin
-		wp_enqueue_style( 'superfish', get_template_directory_uri().'/css/header.css' ); // styles for header
+		wp_enqueue_style( 'header', get_template_directory_uri().'/css/header.css' ); // styles for header
+		wp_enqueue_style( 'footer', get_template_directory_uri().'/css/footer.css' ); // styles for footer
 		wp_enqueue_style( 'mainstyle', get_template_directory_uri().'/css/style.css' ); // main styles theme
 	}
 }

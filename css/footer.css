@@ -1,0 +1,40 @@
+/*---------------footer-------------*/
+
+footer{
+	background: #6899d6;
+	border-top: 4px solid #3367D6;
+	padding: 20px 0;
+	color: #fff;
+}
+
+.phone_back{
+	padding: 100px 0;
+}
+
+.end{
+	background: #3367D6;
+	padding: 10px 0 0 0;
+	color: #fff;
+}
+.end a{
+	color: #fff;
+}
+
+.phone_back h1{
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 40px 0
+}
+
+.phone_back input{
+	width: 80%;
+	margin: 0 10%;
+	border: 2px solid #3367D6;
+	border-radius: 5px;
+	padding: 7px;
+}
+
+.phone_back input[type="submit"]:hover{
+	background: #3367D6;
+	color: #fff;
+}
