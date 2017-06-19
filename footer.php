@@ -24,6 +24,7 @@ GreenTec Auto specializes in rebuilding high voltage (HV) Batteries for most hyb
 			</div>
 		</div>
 	</section>
+	<span class="inter_img_arrow_back"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
 <?php wp_footer(); ?>
 </body>
 </html>
