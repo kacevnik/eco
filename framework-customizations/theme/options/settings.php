@@ -97,21 +97,13 @@
 				    'help'  => __('Нижний слоган на главной страрнице', '{domain}'),
 				),
     		),
-    		'title' => __('Основные настройки', '{domain}'),
+    		'title' => __('Main Settings', '{domain}'),
     		'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
 		),
 		'kdv_tap_gallary_post_new' => array(
     		'type' => 'tab',
     		'options' => array(
-        		'kdv_gallery_off'  => array(
-				    'type'  => 'switch',
-				    'value' => true, // checked/unchecked
-				    'label' => __('Включть галерею', '{domain}'),
-				    'desc'  => __('', '{domain}'),
-				    'help'  => __('Если включить, то галерея будет отражаться на главной странице', '{domain}')
-				),
-
-				'kdv_gallery_background' => array(
+				'kdv_footer_logo' => array(
 				    'type'  => 'upload',
 				    'value' => array(
 				        /*
@@ -122,9 +114,9 @@
 				        // because there is no sense to set hardcode attachment_id
 				    ),
 				    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-				    'label' => __('Фон секции', '{domain}'),
+				    'label' => __('Logo', '{domain}'),
 				    'desc'  => __('', '{domain}'),
-				    'help'  => __('Загрузите задний фон для секции галереи (разрешенные файлы для загрузки: jpg, png, gif), требуемые размеры ВхШ (850Х1920)', '{domain}'),
+				    'help'  => __('Upload logo images for footer (jpg, png, gif)', '{domain}'),
 				    /**
 				     * If set to `true`, the option will allow to upload only images, and display a thumb of the selected one.
 				     * If set to `false`, the option will allow to upload any file from the media library.
@@ -143,35 +135,30 @@
 				    'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
 				),
 
-				'kdv_gallery_category' => array(
-				    'type'  => 'select',
-				    'value' => 'choice-3',
+				'kdv_footer_link_for_logo' => array(
+				    'type'  => 'text',
+				    'label' => __('Link for logo', '{domain}'),
+				    'help'  => __('set link for logo image', '{domain}'),
+				),
+
+				'kdv_footer_color_1' => array(
+				    'type'  => 'color-picker',
+				    'value' => '#6899d6',
 				    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-				    'label' => __('Рубрика', '{domain}'),
-				    'desc'  => __('', '{domain}'),
-				    'help'  => __('Выберите рубрику, посты каторой будут показываться.', '{domain}'),
-				    'choices' => $res_category_list,
-				    'no-validate' => false,
+				    // palette colors array
+				    'label' => __('Footer color 1', '{domain}'),
 				),
 
-				'kdv_gallery_count_items' => array(
-				    'type'  => 'text',
-				    'value' => '7',
-				    'label' => __('Максимальное количество слайдов', '{domain}'),
-				    'desc'  => __('', '{domain}'),
-				    'help'  => __('Задайте максимальное количество слайдов для галереи.', '{domain}'),
-				),
-
-				'kdv_gallery_speed' => array(
-				    'type'  => 'text',
-				    'value' => '500',
-				    'label' => __('Скорость анимации переходов', '{domain}'),
-				    'desc'  => __('', '{domain}'),
-				    'help'  => __('Задайте скорость анимации переходов для галереи при ручном перелистывании. (указать в милисекундах)', '{domain}'),
+				'kdv_footer_color_2' => array(
+				    'type'  => 'color-picker',
+				    'value' => '#3367D6',
+				    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+				    // palette colors array
+				    'label' => __('Footer color 2', '{domain}'),
 				)
 
 			),
-    		'title' => __('Галерея постов', '{domain}'),
+    		'title' => __('Footer settings', '{domain}'),
     		'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
 		),
 	);

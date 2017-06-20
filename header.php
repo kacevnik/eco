@@ -31,19 +31,10 @@
 		<section id="main_top">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-2">
-						<div class="logo">
-							<a href="">
-								<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-							</a>
-						</div>
-					</div>
-					<div class="col-md-10">
 						<?php
 							$args = array('theme_location' => 'top', 'container'=> 'nav', 'menu_class' => 'top_main_menu', 'menu_id' => 'top_main_menu');
 							wp_nav_menu($args);
 						?>
-					</div>
 				</div>
 			</div>
 		</section>

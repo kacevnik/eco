@@ -52,6 +52,7 @@ header{
 }
 
 .top_main_menu{
+	width: 100%;
 	float: right;
 	text-transform: uppercase;
 	margin: 15px 0 15px 0;

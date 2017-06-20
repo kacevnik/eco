@@ -27,6 +27,28 @@ function kdv_custom_css_style() {
 ?>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,700" rel="stylesheet">
 <?php
+	if(defined('FW')){
+		if(fw_get_db_settings_option('kdv_footer_color_1') || fw_get_db_settings_option('kdv_footer_color_2')){
+?>
+	<style type="text/css">
+	footer{
+		background-color: <?php echo fw_get_db_settings_option('kdv_footer_color_1'); ?>;
+		border-color: <?php echo fw_get_db_settings_option('kdv_footer_color_2'); ?>;
+	}
+<?php
+	if(fw_get_db_settings_option('kdv_footer_color_2')){
+?>
+	.end{
+		background-color: <?php echo fw_get_db_settings_option('kdv_footer_color_2'); ?>;
+	}
+<?php		
+	}
+?>
+	</style>
+<?php
+
+		}
+	}
 }
 
 class clean_comments_constructor extends Walker_Comment { // класс, который собирает всю структуру комментов
