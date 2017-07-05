@@ -16,7 +16,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="top_phone"><i class="fa fa-phone"></i>800-773-66-14</div>
+						<div class="top_phone"><i class="fa fa-phone"></i>
+						<?php if(defined('FW') && fw_get_db_settings_option('kdv_header_phone')){echo  fw_get_db_settings_option('kdv_header_phone'); }
+						?>
+						</div>
 					</div>
 					<div class="col-md-6">
 						<?php

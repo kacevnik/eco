@@ -28,7 +28,7 @@ function kdv_custom_css_style() {
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,700" rel="stylesheet">
 <?php
 	if(defined('FW')){
-		if(fw_get_db_settings_option('kdv_footer_color_1') || fw_get_db_settings_option('kdv_footer_color_2')){
+		if(fw_get_db_settings_option('kdv_footer_color_1') || fw_get_db_settings_option('kdv_footer_color_2') || fw_get_db_settings_option('kdv_header_opacity')){
 ?>
 	<style type="text/css">
 	footer{
@@ -43,12 +43,30 @@ function kdv_custom_css_style() {
 	}
 <?php		
 	}
+	if(fw_get_db_settings_option('kdv_header_opacity')){
+?>
+	header{
+		background: rgba(0, 0, 0, <?php echo fw_get_db_settings_option('kdv_header_opacity'); ?>);
+	}
+<?php
+	}
 ?>
 	</style>
 <?php
 
 		}
 	}
+}
+
+add_action("wp_head", "kdv_custom_js");
+
+function kdv_custom_js(){
+?>
+	<script type="text/javascript">
+	/*//////DATA///////*/
+	var theme_data_object = {'position-main-menu': <?php if(defined('FW') && fw_get_db_settings_option('kdv_header_menu_position')){echo fw_get_db_settings_option('kdv_header_menu_position'); } ?>};
+	</script>
+<?php
 }
 
 class clean_comments_constructor extends Walker_Comment { // класс, который собирает всю структуру комментов

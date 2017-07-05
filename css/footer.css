@@ -5,6 +5,8 @@ footer{
 	border-top: 4px solid #3367D6;
 	padding: 20px 0;
 	color: #fff;
+	background: url(../img/do_footer.jpg)repeat-x;
+    background-size: 23%;
 }
 
 .phone_back{

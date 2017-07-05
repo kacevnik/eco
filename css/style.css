@@ -13,24 +13,25 @@ body{
 
 .inter_img{
 	position: relative;
+    cursor: pointer;
 }
 
 .inter_img_arrow{
 	position: absolute;
-    font-size: 118px;
-    color: rgba(255, 255, 255, 0.46);
+    font-size: 90px;
+    color: rgba(255, 255, 255, 0.0);
     display: block;
     right: 25px;
-    top: 26%;
     cursor: pointer;
+    bottom: 15px;
 }
 
-.inter_img_arrow:hover{
-    color: rgba(255, 255, 255, 1);
+.inter_img:hover >.inter_img_arrow{
+    color: rgba(255, 255, 255, 0.7);
 }
 .inter_img_arrow_back{
 	position: fixed;
-    font-size: 118px;
+    font-size: 90px;
     color: rgba(0, 0, 0, 0.46);
     right: 25px;
     cursor: pointer;

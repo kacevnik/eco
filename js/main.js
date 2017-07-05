@@ -1,8 +1,11 @@
-jQuery(document).ready(function ($) {		
-	$('.top_main_menu').append('<div class="fancy_bottom"></div>');
-	$('.fancy_bottom').width($('.current-menu-item').width());
-	var fancy_bottom = $('.current-menu-item').offset();
-	$('.fancy_bottom').offset({left: fancy_bottom.left});
+jQuery(document).ready(function ($) {
+
+	setTimeout(function(){
+		$('.top_main_menu').append('<div class="fancy_bottom"></div>');
+		$('.fancy_bottom').width($('.current-menu-item').width());
+		var fancy_bottom = $('.current-menu-item').offset();
+		$('.fancy_bottom').offset({left: fancy_bottom.left});
+	}, 300);
 
 	$('.top_main_menu >.menu-item').hover(function(){
 		var t = $('.top_main_menu').offset();
@@ -25,8 +28,8 @@ jQuery(document).ready(function ($) {
 	$('.body_hide').height($(document).height());
 	$('.inter_img_hide').css({'left': $(window).width()+'px'});
 
-	$('.inter_img_arrow').click(function(){
-		var a = $(this).parent().next().clone();
+	$('.inter_img').click(function(){
+		var a = $(this).next().clone();
 		a.width($(window).width()-40+'px');
 		if(a.width() > 800)a.width(800-40+'px');
 		$("html,body").css("overflow","hidden");
@@ -50,4 +53,11 @@ jQuery(document).ready(function ($) {
 			$("html,body").css("overflow","auto");
 		}, 300);
 	});
+
+	if(theme_data_object["position-main-menu"] == 2){
+		$('#top_main_menu').css({'margin-left': ($('#top_main_menu').parent().width()-$('#top_main_menu').width())/2+'px'});
+	}else if(theme_data_object["position-main-menu"] == 3){
+		$('#top_main_menu').css({'float': 'right'});
+	}
+
 });

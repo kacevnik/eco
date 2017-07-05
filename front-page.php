@@ -13,7 +13,7 @@
 			<div class="main_text">
 			<div class="inter_img">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/d1.jpg" alt="" style="margin: 0 0 30px 0;">
-				<span class="inter_img_arrow"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+				<span class="inter_img_arrow"><i class="fa fa-angle-double-left"></i></span>
 			</div>
 			<div class="inter_img_hide">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/d2.jpg" alt="" style="margin: 0 0 30px 0;">
@@ -45,6 +45,26 @@
 					<input type="submit" value="Send">
 				</div>
 			</form>
+		</div>
+	</div>
+</section>
+<section class="front_page">
+	<div class="container">
+		<div class="row">
+			<h1>HYBRID BATTERIES</h1>
+			<div class="main_text">
+			<div class="inter_img">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/d1.jpg" alt="" style="margin: 0 0 30px 0;">
+				<span class="inter_img_arrow"><i class="fa fa-angle-double-left"></i></span>
+			</div>
+			<div class="inter_img_hide">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/d2.jpg" alt="" style="margin: 0 0 30px 0;">
+				<p style="margin: 0 0 30px 0;">GreenTec Auto specializes in rebuilding high voltage (HV) Batteries for most hybrid cars. We offer Toyota Prius replacement hybrid batteries for all generations and models. Honda IMA batteries for Civic, Accord and Insight, Toyota Camry Hybrid, Nissan, Kia, Lexus – we’ve got them all.  We use good, tested cells from newer battery packs, making sure our re-manufactured high voltage batteries work properly and efficiently. From an oil change to a new Hybrid Battery replacement, trans-axle or full rebuild, you can trust our trained hybrid car repair professionals to take care of it for you. We look forward to adding you to our long list of loyal, satisfied customers. Please take a minute and see what some of them are saying about us online.  We have a personal approach to customer service and we guarantee our work.</p>
+				<p style="margin: 0 0 30px 0;">GreenTec Auto specializes in rebuilding high voltage (HV) Batteries for most hybrid cars. We offer Toyota Prius replacement hybrid batteries for all generations and models. Honda IMA batteries for Civic, Accord and Insight, Toyota Camry Hybrid, Nissan, Kia, Lexus – we’ve got them all.  We use good, tested cells from newer battery packs, making sure our re-manufactured high voltage batteries work properly and efficiently. From an oil change to a new Hybrid Battery replacement, trans-axle or full rebuild, you can trust our trained hybrid car repair professionals to take care of it for you. We look forward to adding you to our long list of loyal, satisfied customers. Please take a minute and see what some of them are saying about us online.  We have a personal approach to customer service and we guarantee our work.</p>
+				<p style="margin: 0 0 30px 0;">GreenTec Auto specializes in rebuilding high voltage (HV) Batteries for most hybrid cars. We offer Toyota Prius replacement hybrid batteries for all generations and models. Honda IMA batteries for Civic, Accord and Insight, Toyota Camry Hybrid, Nissan, Kia, Lexus – we’ve got them all.  We use good, tested cells from newer battery packs, making sure our re-manufactured high voltage batteries work properly and efficiently. From an oil change to a new Hybrid Battery replacement, trans-axle or full rebuild, you can trust our trained hybrid car repair professionals to take care of it for you. We look forward to adding you to our long list of loyal, satisfied customers. Please take a minute and see what some of them are saying about us online.  We have a personal approach to customer service and we guarantee our work.</p>
+				<p style="margin: 0 0 30px 0;">GreenTec Auto specializes in rebuilding high voltage (HV) Batteries for most hybrid cars. We offer Toyota Prius replacement hybrid batteries for all generations and models. Honda IMA batteries for Civic, Accord and Insight, Toyota Camry Hybrid, Nissan, Kia, Lexus – we’ve got them all.  We use good, tested cells from newer battery packs, making sure our re-manufactured high voltage batteries work properly and efficiently. From an oil change to a new Hybrid Battery replacement, trans-axle or full rebuild, you can trust our trained hybrid car repair professionals to take care of it for you. We look forward to adding you to our long list of loyal, satisfied customers. Please take a minute and see what some of them are saying about us online.  We have a personal approach to customer service and we guarantee our work.</p>
+			</div>
+			</div>
 		</div>
 	</div>
 </section>
