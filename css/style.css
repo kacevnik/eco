@@ -11,13 +11,13 @@ body{
 	border-top: 5px solid #3367D6;
 }
 
-.inter_img{
+.inter_img_left, .inter_img_right{
 	position: relative;
     cursor: pointer;
 }
 
-.inter_img_arrow{
-	position: absolute;
+.inter_img_arrow_left{
+    position: absolute;
     font-size: 90px;
     color: rgba(255, 255, 255, 0.0);
     display: block;
@@ -26,10 +26,36 @@ body{
     bottom: 15px;
 }
 
-.inter_img:hover >.inter_img_arrow{
+.inter_img_arrow_right{
+	position: absolute;
+    font-size: 90px;
+    color: rgba(255, 255, 255, 0.0);
+    display: block;
+    left: 25px;
+    cursor: pointer;
+    bottom: 15px;
+}
+
+.inter_img_left:hover >.inter_img_arrow_left{
     color: rgba(255, 255, 255, 0.7);
 }
-.inter_img_arrow_back{
+
+.inter_img_right:hover >.inter_img_arrow_right{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.inter_img_arrow_back_left{
+    position: fixed;
+    font-size: 90px;
+    color: rgba(0, 0, 0, 0.46);
+    right: 25px;
+    cursor: pointer;
+    bottom: 40px;
+    z-index: 11000;
+    display: none;
+}
+
+.inter_img_arrow_back_right{
 	position: fixed;
     font-size: 90px;
     color: rgba(0, 0, 0, 0.46);
@@ -40,11 +66,11 @@ body{
     display: none;
 }
 
-.inter_img_arrow_back:hover{
+.inter_img_arrow_back_left:hover{
     color: rgba(0, 0, 0, 1);
 }
 
-.inter_img_hide{
+.inter_img_hide_left, .inter_img_hide_right{
 	display: none;
 	position: absolute;
     background: #fff;

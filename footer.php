@@ -24,7 +24,8 @@
 			</div>
 		</div>
 	</section>
-	<span class="inter_img_arrow_back"><i class="fa fa-angle-double-right"></i></span>
+	<span class="inter_img_arrow_back_left"><i class="fa fa-angle-double-right"></i></span>
+	<span class="inter_img_arrow_back_right"><i class="fa fa-angle-double-left"></i></span>
 <?php wp_footer(); ?>
 </body>
 </html>

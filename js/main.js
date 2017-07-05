@@ -26,9 +26,10 @@ jQuery(document).ready(function ($) {
 	$('body').append('<div class="body_hide"></div>');
 
 	$('.body_hide').height($(document).height());
-	$('.inter_img_hide').css({'left': $(window).width()+'px'});
+	$('.inter_img_hide_left').css({'left': $(window).width()+'px'});
+	$('.inter_img_hide_right').css({'right': $(window).width()+'px'});
 
-	$('.inter_img').click(function(){
+	$('.inter_img_left').click(function(){
 		var a = $(this).next().clone();
 		a.width($(window).width()-40+'px');
 		if(a.width() > 800)a.width(800-40+'px');
@@ -39,17 +40,42 @@ jQuery(document).ready(function ($) {
 		var c = ($(window).width()-a.width())/2+20+'px';
 		a.stop().show().css({'top': '0px'}).height($(window).height()-200).animate({'left': $(window).width()/2-(a.width()+40)/2+'px'}, 300);
 		setTimeout(function(){
-			$('.inter_img_arrow_back').show().css({'right': c});
+			$('.inter_img_arrow_back_left').show().css({'right': c});
+		}, 300);
+	});	
+
+	$('.inter_img_right').click(function(){
+		var a = $(this).next().clone();
+		a.width($(window).width()-40+'px');
+		if(a.width() > 800)a.width(800-40+'px');
+		$("html,body").css("overflow","hidden");
+		$(".body_hide").show().css({'top': $(window).scrollTop()});
+		$(".body_hide").append(a);
+		if($(window).height()< a.height()+200)a.css({'overflow-y' : 'scroll'});
+		var c = ($(window).width()-a.width())/2+20+'px';
+		a.stop().show().css({'top': '0px'}).height($(window).height()-200).animate({'right': $(window).width()/2-(a.width()+40)/2+'px'}, 300);
+		setTimeout(function(){
+			$('.inter_img_arrow_back_right').show().css({'left': c});
 		}, 300);
 	});
 
 
-	$('.inter_img_arrow_back').click(function(){
+	$('.inter_img_arrow_back_left').click(function(){
 		$(this).hide();
 		$('.inter_img_hide').stop().animate({'left': $(window).width()+'px'}, 300);
 		setTimeout(function(){
 			$('.body_hide').hide();
 			$('.body_hide').find('.inter_img_hide').remove();
+			$("html,body").css("overflow","auto");
+		}, 300);
+	});	
+
+	$('.inter_img_arrow_back_right').click(function(){
+		$(this).hide();
+		$('.inter_img_hide_right').stop().animate({'right': $(window).width()+'px'}, 300);
+		setTimeout(function(){
+			$('.body_hide').hide();
+			$('.body_hide').find('.inter_img_hide_right').remove();
 			$("html,body").css("overflow","auto");
 		}, 300);
 	});
